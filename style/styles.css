@@ -6,13 +6,13 @@
 }
 
 :root {
-  --main-bg-color: #d4effd;
-  --secondary-bg-color: #f0f0f0;
-  --text-color: #333;
-  --accent-color: #a020f0;
-  --accent-hover-color: #8b008b;
-  --border-color: #ddd;
-  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --main-bg-color: #1c1c1c;
+  --secondary-bg-color: #2b2b2b;
+  --text-color: #e0e0e0;
+  --accent-color: #ff4081;
+  --accent-hover-color: #f50057;
+  --border-color: #444;
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
   --padding: 8px;
   --font-family: 'Roboto', sans-serif;
 }
@@ -27,11 +27,10 @@ html, body {
   margin: 0;
   font-family: var(--font-family);
   color: var(--text-color);
+  background-color: var(--main-bg-color);
 }
 
 body {
-  background-image: url("../img/background.jpg");
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +40,7 @@ body {
 
 hr {
   width: 100%;
+  border-color: var(--border-color);
 }
 
 input, button {
@@ -48,14 +48,17 @@ input, button {
   padding: 8px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
 }
 
 input:enabled, button:enabled {
   cursor: pointer;
 }
 
-input[type="button"] {
-  min-width: 112px;
+input[type="button"]:hover, button:hover {
+  background-color: var(--accent-hover-color);
+  border-color: var(--accent-color);
 }
 
 footer {
@@ -64,12 +67,12 @@ footer {
   font-weight: bold;
   font-style: italic;
   color: var(--accent-color);
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 2px 0;
+  background-color: var(--secondary-bg-color);
+  padding: 10px 0;
 }
 
 footer a {
-  color: #f6d;
+  color: var(--accent-color);
   text-decoration: none;
 }
 
@@ -84,8 +87,8 @@ body, .container-v {
 }
 
 .checkered {
-  background-image: linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd),
-                    linear-gradient(45deg, #ddd 25%, #eee 25%, #eee 75%, #ddd 75%, #ddd);
+  background-image: linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333),
+                    linear-gradient(45deg, #333 25%, #444 25%, #444 75%, #333 75%, #333);
   background-size: 16px 16px;
   background-position: 0 0, 8px 8px;
 }
@@ -124,8 +127,8 @@ body, .container-v {
   top: 10px;
   width: 22px;
   height: 22px;
-  background: rgba(136, 136, 255, 0.22);
-  border: 1px solid #3c00847d;
+  background: var(--secondary-bg-color);
+  border: 1px solid var(--accent-color);
   border-radius: 50%;
   padding: 0 4px;
   transition: background 0.3s;
@@ -138,7 +141,7 @@ body, .container-v {
   height: 12px;
   border-style: double;
   border-width: 0 0 0 12px;
-  border-color: transparent transparent transparent #6a12ea;
+  border-color: transparent transparent transparent var(--accent-color);
 }
 
 .viewer-pause-btn.pausePressed::after {
@@ -147,11 +150,7 @@ body, .container-v {
 }
 
 .viewer-pause-btn:hover {
-  background: rgba(136, 136, 255, 0.5);
-}
-
-.viewer-pause-btn:hover::after {
-  border-left-color: var(--accent-hover-color);
+  background: var(--accent-hover-color);
 }
 
 .note {
@@ -182,7 +181,7 @@ body, .container-v {
   border: 1px solid var(--border-color);
   padding: var(--padding);
   margin-bottom: 5px;
-  background-color: var(--main-bg-color);
+  background-color: var(--secondary-bg-color);
   box-shadow: 0 4px 8px var(--box-shadow-color);
   border-radius: 8px;
 }
@@ -213,10 +212,7 @@ body, .container-v {
 #container-3d-viewers {
   position: relative;
   min-height: 358px;
-  background-image: url("../img/3d-background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 100%;
+  background-color: var(--main-bg-color);
   box-shadow: 0 4px 8px var(--box-shadow-color);
   border-radius: 8px;
 }
@@ -235,7 +231,7 @@ body, .container-v {
   padding: 1px 4px;
   border-radius: 5px;
   margin-top: 2px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 #container-left, #container-2d-viewer {
@@ -245,7 +241,7 @@ body, .container-v {
 #container-left {
   min-height: 512px;
   height: min-content;
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   padding: var(--padding);
   flex: 1;
   display: flex;
@@ -288,13 +284,13 @@ body, .container-v {
   top: 40px;
   right: 10px;
   font: 40px "Roboto Remix";
-  color: #fcfc02;
-  text-shadow: 3px 3px 0 #3e4000;
+  color: var(--accent-color);
+  text-shadow: 3px 3px 0 #000;
   animation: splash-text-anim 0.25s ease-in infinite alternate;
 }
 
 #HDMode {
   font-weight: bold;
   font-style: italic;
-  color: #0c9;
+  color: var(--accent-color);
 }
