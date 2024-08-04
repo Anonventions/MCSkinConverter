@@ -1,198 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @font-face {
   font-family: "Roboto Remix";
-  src: url("Minecraftchmc-dBlX.ttf") format("truetype");  /* Roboto Remix Font - Carl Heavenezer M. Castro (heaven castro) - https://www.fontspace.com/roboto-remix-font-f26577 */
+  src: url("Minecraftchmc-dBlX.ttf") format("truetype");  /* Roboto Remix Font - Carl Heavenezer M. Castro (heaven castro) */
 }
 
-@keyframes splash-text-anim{
-  from{transform: rotate(20deg) scale(0.95, 0.95);}
-  to{transform: rotate(20deg);}
+:root {
+  --main-bg-color: #d4effd;
+  --secondary-bg-color: #f0f0f0;
+  --text-color: #333;
+  --accent-color: #a020f0;
+  --accent-hover-color: #8b008b;
+  --border-color: #ddd;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --padding: 8px;
+  --font-family: 'Roboto', sans-serif;
 }
 
-html, body{
+@keyframes splash-text-anim {
+  from { transform: rotate(20deg) scale(0.95); }
+  to { transform: rotate(20deg); }
+}
+
+html, body {
   height: 100%;
   margin: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
 }
 
-body{
-  justify-content: space-between;
+body {
   background-image: url("../img/background.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-hr{
+hr {
   width: 100%;
 }
 
-input{
-  margin: 2px 2px 2px 0;
+input, button {
+  margin: 2px 0;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
-input:enabled, button:enabled{
+input:enabled, button:enabled {
   cursor: pointer;
 }
 
-input[type="button"]{
+input[type="button"] {
   min-width: 112px;
 }
 
-footer{
+footer {
   width: 100%;
   text-align: center;
   font-weight: bold;
   font-style: italic;
-  color: #f3b;
+  color: var(--accent-color);
   background-color: rgba(0, 0, 0, 0.7);
   padding: 2px 0;
 }
 
-footer a{
+footer a {
   color: #f6d;
   text-decoration: none;
 }
 
-footer a:hover{
+footer a:hover {
   text-decoration: underline;
 }
 
-body, .container-v{
+body, .container-v {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-html.draggingCursorOverride *, html.resizeNSCursorOverride *, html.resizeEWCursorOverride *{
-  cursor: inherit !important;
-}
-
-html.draggingCursorOverride > body{
-  cursor: grabbing !important;
-}
-
-html.resizeNSCursorOverride > body, .resizeNSCursor{
-  cursor: ns-resize !important;
-}
-
-html.resizeEWCursorOverride > body, .resizeEWCursor{
-  cursor: ew-resize !important;
-}
-
-.checkered{
+.checkered {
   background-image: linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%, #ddd),
                     linear-gradient(45deg, #ddd 25%, #eee 25%, #eee 75%, #ddd 75%, #ddd);
-  background-size: 3.125% 3.125%;
-  background-position: 0 0, 1.5625% 1.5625%;
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
 }
 
-.pixelart{
+.pixelart {
   image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-crisp-edges;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.invisible{
+.invisible {
   visibility: hidden;
 }
 
-.hintConversion{
+.hintConversion {
   font-weight: bold;
 }
 
-.separator-3d-viewers{
-  border-right: 1px solid grey;
+.separator-3d-viewers {
+  border-right: 1px solid var(--border-color);
 }
 
-.skin-viewer-3d{
-  margin: 18px auto 20px !important;
+.skin-viewer-3d {
+  margin: 18px auto 20px;
   will-change: transform;
 }
 
-.skin-viewer-3d > .player{
+.skin-viewer-3d > .player {
   cursor: grab;
 }
 
-.viewer-pause-btn{
+.viewer-pause-btn {
   position: absolute;
   top: 10px;
   width: 22px;
   height: 22px;
-  line-height: 18px;
-  background: #888FFF38;
-  border: 1px #3c00847d solid;
-  border-radius: 25%;
-  padding: 0 4px; /* compat */
+  background: rgba(136, 136, 255, 0.22);
+  border: 1px solid #3c00847d;
+  border-radius: 50%;
+  padding: 0 4px;
+  transition: background 0.3s;
 }
 
-.viewer-pause-btn::after{
-  position: relative;
-  width: 14px;
-  height: 14px;
+.viewer-pause-btn::after {
   content: "";
   display: block;
-  box-sizing: border-box;
-  border-color: transparent transparent transparent #6a12ea;
-  transition: 100ms all ease;
-  will-change: border-width;
+  width: 12px;
+  height: 12px;
   border-style: double;
   border-width: 0 0 0 12px;
+  border-color: transparent transparent transparent #6a12ea;
 }
 
-.viewer-pause-btn.pausePressed::after{
+.viewer-pause-btn.pausePressed::after {
   border-style: solid;
   border-width: 7px 0 7px 13px;
 }
 
-.viewer-pause-btn:hover::after{
-  border-left-color: #8418ef;
+.viewer-pause-btn:hover {
+  background: rgba(136, 136, 255, 0.5);
 }
 
-.viewer-pause-btn.steve {
-  left: 10px;
+.viewer-pause-btn:hover::after {
+  border-left-color: var(--accent-hover-color);
 }
 
-.viewer-pause-btn.alex {
-  right: 10px;
-}
-
-.note{
+.note {
   font-style: italic;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
-.no3d{
+.no3d {
   margin: auto;
   font-size: 1.5em;
   font-weight: bold;
-  color: #0f65d2e0;
+  color: var(--accent-color);
 }
 
-.container-h, #content, #container-bottom-left > div{
+.container-h, #content, #container-bottom-left > div {
   display: flex;
 }
 
-#content{
-  flex-flow: row wrap;
+#content {
+  flex-wrap: wrap;
+  margin: var(--padding);
 }
 
-#content, #content > *{
-  margin: 5px;
-}
-
-#container-2d-viewer{
+#container-2d-viewer {
   position: relative;
   width: 512px;
   height: 512px;
-  box-sizing: content-box;
-  border: 1px solid black;
-  padding: 8px;
+  border: 1px solid var(--border-color);
+  padding: var(--padding);
   margin-bottom: 5px;
-  flex-shrink: 0;
-  background-color: #d4effd;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+  border-radius: 8px;
 }
 
-#container-2d-viewer-resize-corner{
+#container-2d-viewer-resize-corner {
   position: absolute;
   bottom: 1px;
   right: 1px;
@@ -201,107 +196,104 @@ html.resizeEWCursorOverride > body, .resizeEWCursor{
   background-image: linear-gradient(135deg, transparent 50%, #888 50%, #888 60%, transparent 60%, transparent 70%, #888 70%, #888 80%, transparent 80%, transparent 90%, #888 90%, #888);
 }
 
-#skin-viewer-2d{
+#skin-viewer-2d {
   width: 100%;
   height: 100%;
   border: 1px dashed rgba(150, 150, 150, 0.4);
 }
 
-#skin-viewer-3d-steve *{
+#skin-viewer-3d-steve * {
   background-image: url("../img/steve.png");
 }
 
-#skin-viewer-3d-alex *{
+#skin-viewer-3d-alex * {
   background-image: url("../img/alex.png");
 }
 
-#container-3d-viewers{
+#container-3d-viewers {
   position: relative;
   min-height: 358px;
-  background-image: url("../img/3d-background.png"); /* Author: https://pixabay.com/users/tommyvideo-3092371/ */
+  background-image: url("../img/3d-background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 100%;
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+  border-radius: 8px;
 }
 
-#container-3d-viewers, #container-3d-viewer-labels{
-  display: flex;
+#container-3d-viewers, #container-3d-viewer-labels {
   justify-content: space-around;
 }
 
-#container-3d-viewer-labels{
+#container-3d-viewer-labels {
   min-height: 24px;
 }
 
-#container-3d-viewer-labels *{
+#container-3d-viewer-labels * {
   font-weight: bold;
-  border: 1px dotted grey;
+  border: 1px dotted var(--border-color);
   padding: 1px 4px;
   border-radius: 5px;
   margin-top: 2px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-#container-left, #container-2d-viewer{
+#container-left, #container-2d-viewer {
   box-shadow: 7px 8px 10px 1px rgba(0, 0, 0, 0.6);
 }
 
-#container-left{
+#container-left {
   min-height: 512px;
   height: min-content;
   border: 1px solid black;
-  padding: 8px;
+  padding: var(--padding);
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #d4effd;
+  background-color: var(--main-bg-color);
 }
 
-#container-bottom{
+#container-bottom {
   display: flex;
   justify-content: space-between;
+  padding: var(--padding);
 }
 
-#container-bottom label{
+#container-bottom label {
   display: inline-block;
   min-width: 120px;
 }
 
-#container-bottom > *{
-  padding: 4px;
-}
-
-#container-bottom-left{
+#container-bottom-left {
   min-width: 435px;
 }
 
-#container-bottom-left label{
+#container-bottom-left label {
   line-height: 22px;
 }
 
-#container-bottom-right{
+#container-bottom-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
 }
 
-#viewer-visibility, #extra-options{
+#viewer-visibility, #extra-options {
   min-width: 175px;
 }
 
-#splash-text{
+#splash-text {
   position: absolute;
   top: 40px;
   right: 10px;
-  font: 40px Roboto Remix;
+  font: 40px "Roboto Remix";
   color: #fcfc02;
   text-shadow: 3px 3px 0 #3e4000;
   animation: splash-text-anim 0.25s ease-in infinite alternate;
 }
 
-#HDMode{
+#HDMode {
   font-weight: bold;
   font-style: italic;
   color: #0c9;
